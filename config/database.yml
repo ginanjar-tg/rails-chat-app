@@ -17,11 +17,4 @@ test:
 
 production:
   <<: *default
-  <% if ENV["DATABASE_URL"].present? %>
   url: <%= ENV["DATABASE_URL"] %>
-  <% else %>
-  database: rails_chat_production
-  host: <%= ENV.fetch("DB_HOST", "localhost") %>
-  username: <%= ENV["DB_USERNAME"] %>
-  password: <%= ENV["DB_PASSWORD"] %>
-  <% end %>

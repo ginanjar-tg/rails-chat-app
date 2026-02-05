@@ -1,0 +1,12 @@
+<%= turbo_stream.append "messages", @message %>
+<%= turbo_stream.replace "new_message" do %>
+  <%= form_with model: Message.new, class: "flex gap-3" do |f| %>
+    <%= f.text_field :content,
+        placeholder: "Type your message...",
+        autocomplete: "off",
+        autofocus: true,
+        class: "flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all" %>
+    <%= f.submit "Send",
+        class: "px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl hover:from-purple-700 hover:to-pink-700 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all cursor-pointer" %>
+  <% end %>
+<% end %>

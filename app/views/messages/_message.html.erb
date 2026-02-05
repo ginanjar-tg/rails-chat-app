@@ -1,0 +1,12 @@
+<div id="<%= dom_id(message) %>" class="flex items-start gap-3 animate-fade-in">
+  <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-sm">
+    <%= message.username[0].upcase %>
+  </div>
+  <div class="flex-1 min-w-0">
+    <div class="flex items-baseline gap-2 mb-1">
+      <span class="font-semibold text-white text-sm"><%= message.username %></span>
+      <span class="text-xs text-white/50"><%= message.created_at.strftime("%H:%M") %></span>
+    </div>
+    <p class="text-white/90 text-sm break-words"><%= message.content %></p>
+  </div>
+</div>

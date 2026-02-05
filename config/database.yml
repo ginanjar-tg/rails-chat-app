@@ -5,7 +5,11 @@ default: &default
 
 development:
   <<: *default
+  <% if ENV["DATABASE_URL"].present? %>
   url: <%= ENV["DATABASE_URL"] %>
+  <% else %>
+  database: rails_chat_development
+  <% end %>
 
 test:
   <<: *default

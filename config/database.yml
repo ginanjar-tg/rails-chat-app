@@ -4,17 +4,32 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
-  <<: *default
-  <% if ENV["DATABASE_URL"].present? %>
-  url: <%= ENV["DATABASE_URL"] %>
-  <% else %>
-  database: rails_chat_development
-  <% end %>
+  primary:
+    <<: *default
+    <% if ENV["DATABASE_URL"].present? %>
+    url: <%= ENV["DATABASE_URL"] %>
+    <% else %>
+    database: rails_chat_development
+    <% end %>
+  cable:
+    <<: *default
+    <% if ENV["DATABASE_URL"].present? %>
+    url: <%= ENV["DATABASE_URL"] %>
+    <% else %>
+    database: rails_chat_development
+    <% end %>
+    migrations_paths: db/cable_migrate
 
 test:
   <<: *default
   database: rails_chat_test
 
 production:
-  <<: *default
-  url: <%= ENV["DATABASE_URL"] %>
+  primary:
+    <<: *default
+    url: <%= ENV["DATABASE_URL"] %>
+  cable:
+    <<: *default
+    url: <%= ENV["DATABASE_URL"] %>
+    migrations_paths: db/cable_migrate
+

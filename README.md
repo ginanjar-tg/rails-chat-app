@@ -1,24 +1,31 @@
-# README
+# Rails Chat
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple real-time chat application built with Ruby on Rails.
 
-Things you may want to cover:
+## Features
+- Single chatroom
+- Real-time message updates
+- Session-based username
+- Minimal chat UI
 
-* Ruby version
+## Live Demo
+https://rails-chat-app-production.up.railway.app/
 
-* System dependencies
+## Local Setup
 
-* Configuration
+```bash
+bundle install
+rails db:create
+rails db:migrate
+rails server
+```
 
-* Database creation
+Then open:
+[http://localhost:3000](http://localhost:3000)
 
-* Database initialization
+## Tech Stack
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Ruby on Rails
+* ActionCable
+* PostgreSQL
+* Tailwind CSS
